@@ -1,0 +1,425 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* =========================================
+   GLOBAL RESET
+========================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  min-width: 0;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  min-width: 0;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+
+  font-family: 'Inter', sans-serif;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0f172a 0%,
+      #1a1f35 100%
+    );
+
+  color: #e2e8f0;
+
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-width: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Images/SVGs should never create horizontal overflow */
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+/* =========================================
+   CUSTOM SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dc2626;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #991b1b;
+}
+
+/* =========================================
+   ASTRA CONTAINERS
+========================================= */
+
+.max-w-7xl,
+.max-w-5xl,
+.max-w-2xl {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.max-w-7xl {
+  max-width: 1280px;
+}
+
+.max-w-5xl {
+  max-width: 1024px;
+}
+
+.max-w-2xl {
+  max-width: 672px;
+}
+
+/* =========================================
+   ASTRA CUSTOM GRIDS
+========================================= */
+
+.astra-grid,
+.astra-feature-grid,
+.astra-course-grid,
+.astra-testimonial-grid {
+  display: grid;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 32px;
+
+  box-sizing: border-box;
+}
+
+.astra-grid > *,
+.astra-feature-grid > *,
+.astra-course-grid > *,
+.astra-testimonial-grid > * {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* =========================================
+   GLASS CARDS
+========================================= */
+
+.glass {
+  min-width: 0;
+  max-width: 100%;
+
+  background: rgba(15, 23, 42, 0.8);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(251, 191, 36, 0.1);
+
+  box-sizing: border-box;
+}
+
+/* =========================================
+   CARD HOVER
+========================================= */
+
+/*
+  IMPORTANT:
+  Don't scale the complete card.
+  Scaling was causing visual overlap with
+  neighboring cards.
+*/
+
+.card-hover {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 12px 30px rgba(220, 38, 38, 0.3);
+}
+
+/* =========================================
+   TEXT SAFETY
+========================================= */
+
+.glass h1,
+.glass h2,
+.glass h3,
+.glass h4,
+.glass h5,
+.glass h6,
+.glass p {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.75rem 1.5rem;
+
+  background-color: #dc2626;
+  color: white;
+
+  font-weight: 600;
+
+  border-radius: 0.5rem;
+
+  text-decoration: none;
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #b91c1c;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 0 25px rgba(220, 38, 38, 0.5);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.75rem 1.5rem;
+
+  background-color: transparent;
+
+  border: 2px solid #dc2626;
+
+  color: #dc2626;
+
+  font-weight: 600;
+
+  border-radius: 0.5rem;
+
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #dc2626;
+  color: white;
+
+  box-shadow:
+    0 0 20px rgba(220, 38, 38, 0.5);
+}
+
+.btn-outline {
+  padding: 0.5rem 1rem;
+
+  border: 1px solid #475569;
+
+  color: #cbd5e1;
+
+  border-radius: 0.25rem;
+
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  border-color: #dc2626;
+  color: #dc2626;
+}
+
+/* =========================================
+   NEON TEXT
+========================================= */
+
+.neon-text {
+  font-family: 'Orbitron', sans-serif;
+
+  font-weight: 700;
+
+  color: #fbbf24;
+
+  text-shadow:
+    0 0 10px rgba(251, 191, 36, 0.5);
+}
+
+.neon-text-red {
+  font-family: 'Orbitron', sans-serif;
+
+  font-weight: 700;
+
+  color: #dc2626;
+
+  text-shadow:
+    0 0 10px rgba(220, 38, 38, 0.5);
+}
+
+/* =========================================
+   GRADIENTS
+========================================= */
+
+.gradient-text {
+  background:
+    linear-gradient(
+      135deg,
+      #fbbf24,
+      #dc2626
+    );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  background-clip: text;
+}
+
+.gradient-border {
+  border-image:
+    linear-gradient(
+      135deg,
+      #fbbf24,
+      #dc2626
+    ) 1;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.astra-hero {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  overflow: hidden;
+}
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+section {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  box-sizing: border-box;
+
+  overflow-x: hidden;
+}
+
+/* =========================================
+   RESPONSIVE - TABLET
+========================================= */
+
+@media (max-width: 1023px) {
+  .astra-grid,
+  .astra-feature-grid,
+  .astra-course-grid,
+  .astra-testimonial-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================================
+   RESPONSIVE - MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+  .max-w-7xl,
+  .max-w-5xl,
+  .max-w-2xl {
+    width: 100%;
+    max-width: 100%;
+
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .astra-grid,
+  .astra-feature-grid,
+  .astra-course-grid,
+  .astra-testimonial-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    max-width: 100%;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .astra-grid,
+  .astra-feature-grid,
+  .astra-course-grid,
+  .astra-testimonial-grid {
+    gap: 16px;
+  }
+}
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+@keyframes slide {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(50px);
+  }
+}
